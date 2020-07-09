@@ -8,8 +8,8 @@ function Sidebar(editorUi, container)
 {
 	this.editorUi = editorUi;
 	this.container = container;
-	this.palettes = new Object();
-	this.taglist = new Object();
+	this.palettes = {};
+	this.taglist = {};
 	this.showTooltips = true;
 	this.graph = editorUi.createTemporaryGraph(this.editorUi.editor.graph.getStylesheet());
     this.graph.cellRenderer.minSvgStrokeWidth = this.minThumbStrokeWidth;
@@ -735,7 +735,7 @@ Sidebar.prototype.addSearchPalette = function(expand)
 	var active = false;
 	var complete = false;
 	var page = 0;
-	var hash = new Object();
+	var hash = {};
 
 	// Count is dynamically updated below
 	var count = 12;
@@ -788,7 +788,7 @@ Sidebar.prototype.addSearchPalette = function(expand)
 				{
 					clearDiv();
 					searchTerm = input.value;
-					hash = new Object();
+					hash = {};
 					complete = false;
 					page = 0;
 				}
@@ -802,7 +802,7 @@ Sidebar.prototype.addSearchPalette = function(expand)
 					active = true;
 					
 					// Ignores old results
-					var current = new Object();
+					var current = {};
 					this.currentSearch = current;
 					
 					this.searchEntries(searchTerm, count, page, mxUtils.bind(this, function(results, len, more, terms)
@@ -872,7 +872,7 @@ Sidebar.prototype.addSearchPalette = function(expand)
 			clearDiv();
 			input.value = '';
 			searchTerm = '';
-			hash = new Object();
+			hash = {};
 			button.style.display = 'none';
 			complete = false;
 			input.focus();

@@ -2010,7 +2010,7 @@ Graph.prototype.openLink = function(href, target, allowOpener)
 			}
 			else
 			{
-				result = window.open(href, (target != null) ? target : '_blank');
+				result = window.open(href, (target != null) ? target : '_self');
 	
 				if (result != null && !allowOpener)
 				{
